@@ -7,6 +7,10 @@ But Windows Media Player also uses the same skin technology for its own standard
 
 Unlike the XML-based WMS skin format, the internal WSZ skin format is binary and completely undocumented. The purpose of this project is to reverse engineer the WSZ format. Another purpose is to provide a program that can eventually convert a WSZ-format skin into its human-readable WMS version, and perhaps also even convert it back to WSZ.
 
+For a (non-formal) description of the binary WSZ format, see [`wsz-format.md`](wsz-format.md)
+
+For the Delphi source code of the WSZ skin converter, see the [`Source`](Source) directory. Note that this only contains the front-end code of the converter. The code that is specific to the WSZ format itself can be found in the [`WMPWSZFormat.pas`](https://github.com/tdebaets/common/blob/master/Delphi/LibUser/WMPWSZFormat.pas) file in the `common` repository.
+
 Obtaining the source code
 -------------------------
 
