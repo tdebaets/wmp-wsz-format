@@ -43,6 +43,8 @@ Unnamed attribute
 `wmpprop:` attribute
 --------------------
 
+`wmpprop:` is a [listening attribute](https://msdn.microsoft.com/en-us/library/windows/desktop/dd563797(v=vs.85).aspx).
+
 `<relative offset of next attribute (word)>` `48 00 00 00 00` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
 
 Named attribute
