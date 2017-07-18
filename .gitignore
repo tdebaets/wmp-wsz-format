@@ -34,6 +34,9 @@ userprefs.bat
 # Temporary batch file copies
 *.tmp.bat
 
+# Output directory
+Output/
+
 # Per-project compiler options created by Delphi
 # A common .cfg file is always used instead for command-line compile
 WMPWSZConvert.cfg
