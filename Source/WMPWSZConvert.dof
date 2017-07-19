@@ -66,13 +66,4 @@ DLL=0
 Locale=2067
 CodePage=1252
 [Version Info Keys]
-CompanyName=Tim De Baets
-FileDescription=WMPWSZConvert
 FileVersion=1.0.0.0
-InternalName=WMPWSZConvert
-LegalCopyright=Copyright © 2017 Tim De Baets - All rights reserved
-LegalTrademarks=
-OriginalFilename=WMPWSZConvert.exe
-ProductName=WMP WSZ Format
-ProductVersion=1.0
-Comments=Written by Tim De Baets

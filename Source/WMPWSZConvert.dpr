@@ -28,6 +28,8 @@ program WMPWSZConvert;
 
 {$APPTYPE CONSOLE}
 
+{$R VersionInfo.res}
+
 uses
   Windows,
   Classes,
