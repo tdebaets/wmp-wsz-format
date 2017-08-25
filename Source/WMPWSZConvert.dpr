@@ -30,6 +30,7 @@ program WMPWSZConvert;
 
 {$R VersionInfo.res}
 
+// TODO: add fastmm
 uses
   Windows,
   Classes,
