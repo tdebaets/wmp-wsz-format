@@ -21,9 +21,9 @@ Named element
 CLSID element
 -------------
 
-`<relative offset of next element (word)>` `<relative offset of first subelement (word)>` `<CLSID element ID>` `<#subelements (byte)>` `<#attributes (byte)>` `00 00` `<CLSID>` `<attributes>`
+`<relative offset of next element (word)>` `<relative offset of first subelement (word)>` `<CLSID element ID (byte)>` `<#subelements (byte)>` `<#attributes (byte)>` `00 00` `<CLSID>` `<attributes>`
 
-Possible CLSID element IDs: `0x82` `0x87` `0x88`
+There doesn't seem to be a single CLSID element ID, but all such IDs have been ORed with a bitmask of `0x80`.
 
 Unnamed attribute
 -----------------
