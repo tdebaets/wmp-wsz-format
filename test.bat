@@ -22,36 +22,53 @@ rem * limitations under the License.
 rem *
 rem **************************************************************************
 rem *
-rem * One-time script to run after cloning the repository
+rem * Script to test the parsing of WSZ skins
 rem *
 rem **************************************************************************
 
-setlocal
+setlocal enabledelayedexpansion
 
-echo Initializing and updating submodules...
+set EXEFILE=WMPWSZConvert.exe
+set COMMONDIR=..\common
+set OUTDIR=Tests
 
-git submodule init
+if not exist Output\%EXEFILE% (
+    echo %EXEFILE% was not found in the 'Output' directory.
+    echo Did you compile the project yet?
+    goto failed2
+)
+
+cd Output
 if errorlevel 1 goto failed
 
-git submodule update
+echo Creating test output directory...
+call %COMMONDIR%\Scripts\createdir.bat %OUTDIR%
 if errorlevel 1 goto failed
 
-call .\common\Scripts\setuprepo.bat %*
-if errorlevel 1 goto failed
+if exist %OUTDIR%\*.log (
+    echo Removing previous test output files...
+    del %OUTDIR%\*.log
+    if errorlevel 1 goto failed
+)
 
-echo Creating directories...
+echo Parsing WSZ skins:
 
-call .\common\Scripts\createdir.bat Output
-if errorlevel 1 goto failed
+for /F "eol=#" %%G in (..\skins.txt) do (
+    echo - %%G
+    %EXEFILE% %%G > %OUTDIR%\%%~nG.log
+    if errorlevel 1 (
+        echo %EXEFILE% failed to parse %%G
+        goto failed
+    )
+)
 
-call .\common\Scripts\createdir.bat Output\DCU
-if errorlevel 1 goto failed
-
-echo Success!
+echo Passed^^!
+cd ..
 goto exit
 
 :failed
 echo *** FAILED ***
+cd ..
 :failed2
 exit /b 1
 
