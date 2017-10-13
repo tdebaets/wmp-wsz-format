@@ -30,8 +30,10 @@ program WMPWSZConvert;
 
 {$R VersionInfo.res}
 
-// TODO: add fastmm
 uses
+{$IFDEF FastMM}
+  FastMM4,
+{$ENDIF FastMM}
   Windows,
   Classes,
   SysUtils,

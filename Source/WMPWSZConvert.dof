@@ -45,11 +45,11 @@ PackageDLLOutputDir=
 PackageDCPOutputDir=
 SearchPath=
 Packages=Vcl40;Vclx40;Vcldb40;vcldbx40;VclSmp40
-Conditionals=
+Conditionals=FastMM
 DebugSourceDirs=
 UsePackages=0
 [Parameters]
-RunParams=test
+RunParams=crossfade.wsz
 HostApplication=
 [Version Info]
 IncludeVerInfo=0

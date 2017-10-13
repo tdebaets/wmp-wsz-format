@@ -67,6 +67,7 @@ set COMMONDIR=..\common
 set LIB_PATH=%COMMONDIR%\Delphi\LibFixed;%DELPHIROOT%\lib
 set LIB_PATH=%LIB_PATH%;%COMMONDIR%\Delphi\LibUser;%COMMONDIR%\Delphi\Imports
 set LIB_PATH=%LIB_PATH%;%COMMONDIR%\Delphi\LibUser\TntUnicodeControls
+set LIB_PATH=%LIB_PATH%;%COMMONDIR%\Delphi\LibUser\FastMM4
 
 rem -------------------------------------------------------------------------
 
