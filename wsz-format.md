@@ -45,14 +45,20 @@ Unnamed attribute
 
 `wmpprop:` is a [listening attribute](https://msdn.microsoft.com/en-us/library/windows/desktop/dd563797(v=vs.85).aspx).
 
-`<relative offset of next attribute (word)>` `48 00 00 00 00` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
+### Named
+
+`<relative offset of next attribute (word)>` `0x40` `<unknown 4-byte integer>` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
+
+### Unnamed
+
+`<relative offset of next attribute (word)>` `0x48` `<unknown 4-byte integer>` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
 
 Named attribute
 ---------------
 
-`<relative offset of next attribute (word)>` `00` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
+`<relative offset of next attribute (word)>` `0x00` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
 
 Named attribute (event)
 -----------------------
 
-`<relative offset of next attribute (word)>` `E0` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
+`<relative offset of next attribute (word)>` `0xE0` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
