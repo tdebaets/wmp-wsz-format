@@ -59,6 +59,20 @@ begin
   Writeln(Format('%s: %s', [LogLevelStrs[Level], Msg]));
 end;
 
+function LoadStreamFromFile(const Filename: String): TBundledStream;
+begin
+  Result := nil;
+  try
+    Result := TBundledStream.CreateFromFile(Filename,
+        fmOpenRead or fmShareDenyNone);
+  except
+    on E: Exception do begin
+      Writeln('ERROR: Failed to open file: ' + E.Message);
+      ExitCode := 1;
+    end;
+  end;
+end;
+
 function LoadStreamFromWMPLoc(const ResName: String): TBundledStream;
 var
   WMPLocPath: String;
@@ -95,16 +109,30 @@ begin
 end;
 
 var
+  MyFilename: String;
   BundledStream: TBundledStream;
   Logger: TConsoleLogger;
 begin
   if ParamCount < 1 then begin
-    // TODO: also add support for files on disk
-    Writeln(Format('Usage: %s <WSZ resource name in wmploc.dll>',
-        [ExtractFileName(ParamStr(0))]));
-    Exit;
+    MyFilename := ExtractFileName(ParamStr(0));
+    try
+      Writeln;
+      Writeln('Usage:');
+      Writeln;
+      Writeln(Format('%s <Filename of WSZ skin on disk>', [MyFilename]));
+      Writeln(Format('%s <WSZ resource name in wmploc.dll>', [MyFilename]));
+      Exit;
+    finally
+      MyFilename := '';
+    end;
   end;
-  BundledStream := LoadStreamFromWMPLoc(ParamStr(1));
+  if NewFileExists(ParamStr(1)) then
+    BundledStream := LoadStreamFromFile(ParamStr(1))
+  else begin
+    Writeln(Format('WARNING: File %s not found, attempting to load it as a ' +
+        'wmploc.dll resource instead...', [ParamStr(1)]));
+    BundledStream := LoadStreamFromWMPLoc(ParamStr(1));
+  end;
   if not Assigned(BundledStream) then
     Exit;
   try
@@ -119,7 +147,7 @@ begin
             HandleErrorWithPosition(E.Position, E.Message);
           on E: EWMPWSZParseError do
             HandleErrorWithPosition(E.Position, E.Message);
-          on E: EReadError do // unexpected EOS?
+          on E: EReadError do // unexpected end-of-stream?
             HandleError(E.Message);
         end;
       finally
