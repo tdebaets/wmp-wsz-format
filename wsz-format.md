@@ -62,3 +62,10 @@ Named attribute (event)
 -----------------------
 
 `<relative offset of next attribute (word)>` `0xE0` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
+
+Named attribute (ternary conditional value)
+-------------------------------------------
+
+Attribute value is in the form of `condition?'value_if_true':'value_if_false'`.
+
+`<relative offset of next attribute (word)>` `0x80` `<unknown 2-byte integer>` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
