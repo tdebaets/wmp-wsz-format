@@ -29,17 +29,29 @@ rem **************************************************************************
 setlocal enabledelayedexpansion
 
 set EXEFILE=WMPWSZConvert.exe
-set COMMONDIR=..\common
-set OUTDIR=Tests
+set EXEPATH=Output\%EXEFILE%
+set COMMONDIR=common
+set OUTDIR=Output\Tests
 
-if not exist Output\%EXEFILE% (
+if not exist %EXEPATH% (
     echo %EXEFILE% was not found in the 'Output' directory.
     echo Did you compile the project yet?
     goto failed2
 )
 
-cd Output
-if errorlevel 1 goto failed
+if not [%1] equ [] (
+    call %COMMONDIR%\Scripts\checkdir.bat %1
+    if errorlevel 2 (
+        echo Directory '%1' doesn't exist
+        goto failed2
+    )
+    if errorlevel 1 (
+        echo '%1' is a file, not a directory
+        goto failed2
+    )
+    
+    set OUTDIR=%1\Tests
+)
 
 echo Creating test output directory...
 call %COMMONDIR%\Scripts\createdir.bat %OUTDIR%
@@ -53,23 +65,38 @@ if exist %OUTDIR%\*.log (
 
 echo Parsing WSZ skins:
 
-for /F "eol=#" %%G in (..\skins.txt) do (
-    echo - %%G
-    %EXEFILE% %%G > %OUTDIR%\%%~nG.log
-    if errorlevel 1 (
-        echo %EXEFILE% failed to parse %%G
-        goto failed
+if [%1] equ [] (
+    for /F "eol=#" %%G in (skins.txt) do (
+        call :process_skin "%%G"
+        if errorlevel 1 goto failed
+    )
+) else (
+    for %%G in (%1\*.wsz) do (
+        call :process_skin "%%G"
+        if errorlevel 1 goto failed
     )
 )
 
 echo Passed^^!
-cd ..
 goto exit
 
 :failed
 echo *** FAILED ***
-cd ..
 :failed2
 exit /b 1
+
+
+:process_skin
+setlocal
+set _NAME=%~nx1
+set _NAME_NO_EXT=%~n1
+echo - %_NAME%
+%EXEPATH% %1 > %OUTDIR%\%_NAME_NO_EXT%.log
+if errorlevel 1 (
+    echo %EXEFILE% failed to parse %_NAME%
+    exit /b 1
+)
+endlocal
+exit /b 0
 
 :exit
