@@ -108,23 +108,25 @@ begin
   ExitCode := 1;
 end;
 
+procedure ShowUsage;
 var
   MyFilename: String;
+begin
+  MyFilename := ExtractFileName(ParamStr(0));
+  Writeln;
+  Writeln('Usage:');
+  Writeln;
+  Writeln(Format('%s <Filename of WSZ skin on disk>', [MyFilename]));
+  Writeln(Format('%s <WSZ resource name in wmploc.dll>', [MyFilename]));
+end;
+
+var
   BundledStream: TBundledStream;
   Logger: TConsoleLogger;
 begin
   if ParamCount < 1 then begin
-    MyFilename := ExtractFileName(ParamStr(0));
-    try
-      Writeln;
-      Writeln('Usage:');
-      Writeln;
-      Writeln(Format('%s <Filename of WSZ skin on disk>', [MyFilename]));
-      Writeln(Format('%s <WSZ resource name in wmploc.dll>', [MyFilename]));
-      Exit;
-    finally
-      MyFilename := '';
-    end;
+    ShowUsage;
+    Exit;
   end;
   if NewFileExists(ParamStr(1)) then
     BundledStream := LoadStreamFromFile(ParamStr(1))
