@@ -24,12 +24,44 @@
 #
 #############################################################################
 
-# These are all the WSZ skin resources in wmploc.dll that can be parsed
-# successfully by the WSZ skin converter. This list is expected to grow over
-# time, as the converter is improved to handle more complicated skins.
+# This is a list of all the WSZ skin resources in wmploc.dll. The WSZ skin
+# converter should be able to parse all these skins successfully - this gets
+# verified by the test.bat script.
 
 # Keep alpabetical please
+ADVANCEDAUDIO.WSZ
+ALBUMART.WSZ
+#APPCOLORCHOOSER.WSZ # WMP11 only
+BANNER.WSZ
+BORDER.WSZ
+CAPTIONS.WSZ
+CORPORATE.WSZ
 CROSSFADE.WSZ
+#DOLBYDIGITAL.WSZ # WMP12 only
+DVDCTRLS.WSZ
+EQUALIZER.WSZ
 FLYOUT.WSZ
+FULLSCREENBOTTOMLAYOUT.WSZ
+#FULLSCREENTOPLAYOUT.WSZ # WMP12 only
+#HOVERPREVIEW.WSZ # WMP12 only
+HTMLVIEW.WSZ
 MAINAPPSKIN2.WSZ
+MEDIAINFO.WSZ
+#MEDIALINK.WSZ # WMP11 only
+NOWDOING.WSZ
+NOWPLAYING.WSZ
+OCXLAYOUTFULL.WSZ
+OCXLAYOUTINVISIBLE.WSZ
+OCXLAYOUTMINI.WSZ
+OCXLAYOUTNONE.WSZ
+#PLAYER.WSZ # WMP 12 only
+POPUP.WSZ
+REMOTESKIN.WSZ
+RICHPREVIEW.WSZ
+SRSWOW.WSZ
 TASKBAR.WSZ
+VIDEO.WSZ
+VIZ.WSZ
+VSETTINGS.WSZ
+VTASKBAR.WSZ
+WMPDXM.WSZ
