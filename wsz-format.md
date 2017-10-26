@@ -51,7 +51,11 @@ Unnamed attribute
 
 ### Unnamed
 
-`<relative offset of next attribute (word)>` `0x48` `<unknown 4-byte integer>` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
+* `<relative offset of next attribute (word)>` `0x48` `<unknown 4-byte integer>` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
+
+* `<relative offset of next attribute (word)>` `0xC8` `<unknown 4-byte integer>` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
+
+It's not clear yet what the exact difference between these two types is.
 
 Named attribute
 ---------------
