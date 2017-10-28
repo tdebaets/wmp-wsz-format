@@ -38,7 +38,7 @@ Unnamed attribute
 | `0x18`          | Resourcestring (ID) | 4 bytes
 | `0x28`          | `wmpenabled:`       | (zero-terminated Unicode string)
 | `0x0D`          | SYSINT              | (zero-terminated Unicode string)
-| `0x88`          | Global variable     | (zero-terminated Unicode string)
+| `0x88`          | JScript             | (zero-terminated Unicode string)
 
 `wmpprop:` attribute
 --------------------
@@ -67,9 +67,7 @@ Named attribute (event)
 
 `<relative offset of next attribute (word)>` `0xE0` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
 
-Named attribute (ternary conditional value)
+Named attribute (JScript)
 -------------------------------------------
-
-Attribute value is in the form of `condition?'value_if_true':'value_if_false'`.
 
 `<relative offset of next attribute (word)>` `0x80` `<unknown 2-byte integer>` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
