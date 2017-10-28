@@ -45,15 +45,17 @@ Unnamed attribute
 
 `wmpprop:` is a [listening attribute](https://msdn.microsoft.com/en-us/library/windows/desktop/dd563797(v=vs.85).aspx).
 
+`addend` is a 4-byte integer that is added to the attribute referenced in `attribute value`. This integer can be negative, resulting in a subtraction.
+
 ### Named
 
-`<relative offset of next attribute (word)>` `0x40` `<unknown 4-byte integer>` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
+`<relative offset of next attribute (word)>` `0x40` `<addend (integer)>` `<attribute name (zero-terminated Unicode string)>` `<attribute value (zero-terminated Unicode string)>`
 
 ### Unnamed
 
-* `<relative offset of next attribute (word)>` `0x48` `<unknown 4-byte integer>` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
+* `<relative offset of next attribute (word)>` `0x48` `<addend (integer)>` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
 
-* `<relative offset of next attribute (word)>` `0xC8` `<unknown 4-byte integer>` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
+* `<relative offset of next attribute (word)>` `0xC8` `<addend (integer)>` `<dispid (word)>` `00 00` `<attribute value (zero-terminated Unicode string)>`
 
 It's not clear yet what the exact difference between these two types is.
 
