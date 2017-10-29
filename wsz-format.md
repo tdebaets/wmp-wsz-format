@@ -25,6 +25,15 @@ CLSID element
 
 There doesn't seem to be a single CLSID element ID, but all such IDs have been ORed with a bitmask of `0x80`.
 
+Most CLSIDs can be found in the type library in `wmp.dll`. Some internal CLSIDs are not in this type library, but can still be found in `HKEY_LOCAL_MACHINE\Software\Microsoft\MediaPlayer\Objects`. While the type library doesn't contain these internal CLSIDs, it does in fact contain the (main) interface that these CLSIDs implement. The internal CLSIDs that are used in WSZ skins, together with the interface that they implement, are listed here:
+
+| Object     | CLSID                                  | Interface         | IID                                    |
+| ---------- | -------------------------------------- | ----------------- | -------------------------------------- |
+| browser    | {8856F961-340A-11D0-A96B-00C04FD705A2} | HTMLView_Browser? | ?                                      |
+| plugin     | {AA1AC37B-49A8-4B41-AF69-B0176C5FFC33} | IWMPPluginUIHost  | {5D0AD945-289E-45C5-A9C6-F301F0152108} |
+| Skinlist   | {A8A55FAC-82EA-4BD7-BD7B-11586A4D99E4} | IWMPSkinList      | {8CEA03A2-D0C5-4E97-9C38-A676A639A51D} |
+| taskcenter | {395BF287-6477-495F-8427-2C09A23C3248} | ITaskCntrCtrl     | {891EADB1-1C45-48B0-B704-49A888DA98C4} |
+
 Unnamed attribute
 -----------------
 
