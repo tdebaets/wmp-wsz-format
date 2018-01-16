@@ -16,7 +16,9 @@ Predefined element
 Named element
 -------------
 
-`<relative offset of next element (word)>` `<relative offset of first subelement (word)>` `<unknown ID? (byte)>` `<#subelements (byte)>` `<#attributes (byte)>` `<name (zero-terminated Unicode string)>` `<attributes>`
+`<relative offset of next element (word)>` `<relative offset of first subelement (word)>` `<named element ID (byte)>` `<#subelements (byte)>` `<#attributes (byte)>` `<name (zero-terminated Unicode string)>` `<attributes>`
+
+Named element ID can be either `0x00` or `0x03`. ID `0x03` seems to be used exclusively for elements named `BUTTONELEMENT`; all other elements always seem to have an ID of `0x00`.
 
 CLSID element
 -------------
