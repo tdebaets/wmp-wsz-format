@@ -2,7 +2,7 @@
 #
 #            WMP WSZ Format
 #
-#            Copyright (c) 2017 Tim De Baets
+#            Copyright (c) 2017-2018 Tim De Baets
 #
 #############################################################################
 #
