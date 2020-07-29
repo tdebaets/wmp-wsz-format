@@ -39,12 +39,17 @@ if errorlevel 1 goto failed
 call .\common\Scripts\setuprepo.bat %*
 if errorlevel 1 goto failed
 
-echo Creating directories...
+set REPONAME=
+for /f %%i in ('.\common\Scripts\getreponame.bat') do (
+    set REPONAME=%%i
+)
 
-call .\common\Scripts\createdir.bat Output
+echo %REPONAME%: creating directories...
+
+call .\common\Scripts\createdir.bat "Output"
 if errorlevel 1 goto failed
 
-call .\common\Scripts\createdir.bat Output\DCU
+call .\common\Scripts\createdir.bat "Output\DCU"
 if errorlevel 1 goto failed
 
 echo Success!
