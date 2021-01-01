@@ -37,4 +37,4 @@ The WSZ skin converter has been written in Borland Delphi 4. This means that in 
 License
 -------
 
-WMP WSZ Format is Copyright © 2017-2018 Tim De Baets. It is licensed under the Apache License version 2.0, see [LICENSE](LICENSE) for details.
+WMP WSZ Format is Copyright © 2017-2020 Tim De Baets. It is licensed under the Apache License version 2.0, see [LICENSE](LICENSE) for details.
