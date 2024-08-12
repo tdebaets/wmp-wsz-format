@@ -1,5 +1,5 @@
 WMP WSZ Format  
-Copyright © 2017-2020 Tim De Baets. All rights reserved.  
+Copyright © 2017-2024 Tim De Baets. All rights reserved.  
 For conditions of distribution and use, see [LICENSE](LICENSE).  
 
 Predefined element
